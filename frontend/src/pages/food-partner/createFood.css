@@ -1,0 +1,89 @@
+/* =========================================
+   Enhanced Video Upload Styles
+   ========================================= */
+
+.hidden-file-input {
+  display: none; /* Hide the ugly default file input */
+}
+
+.video-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius);
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.video-dropzone:hover {
+  border-color: var(--accent-color);
+  background-color: var(--input-bg);
+}
+
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.dropzone-text {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+.dropzone-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.video-preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: var(--bg-color);
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+.video-preview {
+  width: 100%;
+  max-height: 250px;
+  border-radius: calc(var(--radius) - 4px);
+  background-color: #000; /* Letterboxing for different aspect ratios */
+}
+
+.remove-video-btn {
+  background-color: transparent;
+  color: #e53e3e; /* Red danger color */
+  border: 1px solid #e53e3e;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.remove-video-btn:hover {
+  background-color: #fff5f5;
+}
+
+/* Dark mode adjustment for the remove button */
+@media (prefers-color-scheme: dark) {
+  .remove-video-btn:hover {
+    background-color: rgba(229, 62, 62, 0.1);
+  }
+}

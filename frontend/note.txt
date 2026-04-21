@@ -1,0 +1,17 @@
+/user/register
+/user/login
+
+/food-partner/register
+/food-partner/login 
+
+npm i react-router-dom
+
+<Route path='/user/login' element={<UserLogin />} />
+            <Route path='/food-partner/register' element={<foodPartnerRegister />} />
+            <Route path='/food-partner/login' element={<foodPartnerLogin />} />
+
+
+cors policy mtlb ke ek wesite pr rhte hue dusre site prr request nhi kr skte hai iske lye npm i cors install kr a prta hai
+
+
+axios is used to merge backend and frontend together on the single  page

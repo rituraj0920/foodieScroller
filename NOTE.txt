@@ -1,0 +1,12 @@
+imagekit
+cloudinary
+aws s3
+
+
+uuid generator is for generate random i
+
+A DAW file is related to a Digital Audio Workstation (DAW), which is software used for recording, editing, and producing audio (music, podcasts, etc.).interaction between server and database .
+
+validation ; express validator
+data validator
+

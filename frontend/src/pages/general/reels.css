@@ -1,0 +1,178 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Overall App Structure */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  position: relative; /* Needed for absolute positioning of nav */
+}
+
+/* Reels Scroll Area */
+.reels-container {
+  height: 100vh; /* Changed to 100vh so video goes behind the nav bar */
+  width: 100vw;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+.reels-container::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Individual Video Full Screen Container */
+.video-item {
+  height: 100vh; /* Changed to 100vh */
+  width: 100vw;
+  scroll-snap-align: start;
+  position: relative;
+  background-color: #111;
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* Overlay Structure */
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; 
+  padding: 20px 15px; 
+  /* Pushed up slightly to avoid overlapping the glass nav bar */
+  padding-bottom: 80px; 
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%);
+}
+
+/* Left Side: Description & Button */
+.overlay-left {
+  pointer-events: auto; 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 75%;
+}
+
+.video-description {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.4;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.visit-store-btn {
+  /* Added slight glass effect to the button too */
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #000;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  width: max-content;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Right Side: Action Icons */
+.overlay-right {
+  pointer-events: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Slightly reduced gap because of new padding */
+}
+
+/* ✨ GLASSMORPHISM ON ACTION ICONS ✨ */
+.action-btn {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* The blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle light border */
+  border-radius: 16px; /* Rounded rectangle look */
+  padding: 10px 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: background 0.2s;
+}
+
+.action-btn:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.action-btn svg {
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.4)); 
+}
+
+.action-btn span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ✨ GLASSMORPHISM ON BOTTOM NAV ✨ */
+.bottom-nav {
+  position: absolute; /* Hover over the video */
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  
+  /* Dark glass effect */
+  background-color: rgba(20, 20, 20, 0.5); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100; /* Ensure it stays on top */
+  padding-bottom: env(safe-area-inset-bottom); /* iOS safe area spacing */
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.6); 
+  padding: 10px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-item.active {
+  color: #fff; 
+  transform: scale(1.1); /* Slight pop when active */
+}
+
+/* Utility State Screens */
+.status-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  color: #fff;
+}

@@ -1,0 +1,110 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.saved-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  position: relative; /* Crucial so the nav and header can float over the content */
+  overflow: hidden;
+}
+
+/* ✨ GLASSMORPHISM ON HEADER ✨ */
+.saved-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100; /* Keeps it on top of the scrolling grid */
+  
+  /* Dark glass effect */
+  background-color: rgba(20, 20, 20, 0.6); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: env(safe-area-inset-top); /* Safe area spacing for mobile notches */
+}
+
+.saved-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Instagram-style 3-column Grid */
+.saved-grid {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  overflow-y: auto;
+  align-content: start;
+  
+  /* Padding ensures the first and last rows aren't hidden permanently behind the glass elements */
+  padding-top: 60px; 
+  padding-bottom: 80px; 
+}
+
+.grid-item {
+  aspect-ratio: 9 / 16;
+  background-color: #111;
+  position: relative;
+}
+
+.grid-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #888;
+  font-size: 14px;
+}
+
+/* ✨ GLASSMORPHISM ON BOTTOM NAV (Exact match to Reels.css) ✨ */
+.bottom-nav {
+  position: absolute; 
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  
+  background-color: rgba(20, 20, 20, 0.6); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100; 
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.6); 
+  padding: 10px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.nav-item.active {
+  color: #fff; 
+  transform: scale(1.1); 
+}
