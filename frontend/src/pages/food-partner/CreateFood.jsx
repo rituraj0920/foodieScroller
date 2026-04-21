@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CreateFood.css';
+import './createFood.css';
 import { data } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
